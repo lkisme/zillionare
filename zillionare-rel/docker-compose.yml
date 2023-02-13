@@ -13,9 +13,10 @@ services:
     ports:
       - "3181"
       - "3180"
-      - "${NOTEBOOK_PORT:-8888}:8888"
+      - "${NOTEBOOK_PORT:-8889}:8888"
     stdin_open: true
     tty: true
+    
     working_dir: /apps
     environment:
       - __cfg4py_server_role__
