@@ -52,20 +52,20 @@ omega:
     calendar: 02:00
     bars:
       - frame: '1W'
-        start: '2022-1-1'
+        start: '2020-12-1'
         cat:
           - stock
       - frame: '1M'
-        start: '2022-1-1'
+        start: '2020-12-1'
         cat:
           - stock
       - frame: '1d'
-        start: '2022-1-1'
+        start: '2020-12-1'
         delay: 5 # delay * seconds after the frame is done
         cat:
           - stock
       - frame: '30m'
-        start: '2022-1-1'
+        start: '2021-3-31'
         delay: 5
         cat:
           - stock

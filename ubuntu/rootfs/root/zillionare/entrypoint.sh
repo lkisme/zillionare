@@ -14,7 +14,7 @@ else
     touch ~/.ARCHIVED
 fi
 
-# mkdir /tutorial ||:
-# wget -4 -N https://github.com/zillionare/zillionare/releases/download/v1.0.0/tutorial.tar.gz -O /root/tutorial.tar.gz && tar -xzf /root/tutorial.tar.gz -C /tutorial/
+mkdir /tutorial ||:
+wget -4 -N https://github.com/zillionare/zillionare/releases/download/v1.0.0/tutorial.tar.gz -O /root/tutorial.tar.gz && tar -xzf /root/tutorial.tar.gz -C /tutorial/
 nohup jupyter notebook  --ip='*' --NotebookApp.token='' --NotebookApp.password='' --port 8888 --allow-root --notebook-dir='/tutorial' &
 python3 -m omega.jobs start

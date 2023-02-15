@@ -6,15 +6,15 @@ services:
       args:
         PYPI_INDEX_URL: ${PYPI_INDEX_URL:-https://mirrors.aliyun.com/pypi/simple/}
         # PYPI_INDEX_URL: ${PYPI_INDEX_URL:-https://mirrors.cloud.tencent.com/pypi/simple}
-    container_name: zillionare
-    image: zillionare:${VERSION:-DEV_BUILD}
-    depends_on:
-      - postgres
-      - redis
+    container_name: ubuntu
+    image: ubuntu:2004
+    # depends_on:
+    #   - postgres
+    #   - redis
     ports:
       - "3181"
       - "3180"
-      - "${NOTEBOOK_PORT:-8888}:8888"
+      #- "${NOTEBOOK_PORT:-8888}:8888"
     stdin_open: true
     tty: true
     
@@ -34,22 +34,22 @@ services:
       - REDIS_PORT=${REDIS_PORT:-6379}
       - TZ=Asia/Shanghai
       - LANG=C.UTF-8
-  redis:
-    image: redis:6.2
-    container_name: redis
-    restart: always
-    ports: 
-      - 6379:6379
-    command: sh -c 'redis-server --appendonly yes'
-  postgres:
-    image: postgres:10
-    container_name: postgres
-    restart: always
-    ports: 
-      - 5432:5432
-    environment:
-      - POSTGRES_USER=${POSTGRES_USER:-zillionare}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-123456}
-      - POSTGRES_DB=${POSTGRES_DB:-zillionare}
-    volumes:
-      - ./init/postgres:/docker-entrypoint-initdb.d
+  # redis:
+  #   image: redis:6.2
+  #   container_name: redis
+  #   restart: always
+  #   ports: 
+  #     - 6379:6379
+  #   command: sh -c 'redis-server --appendonly yes'
+  # postgres:
+  #   image: postgres:10
+  #   container_name: postgres
+  #   restart: always
+  #   ports: 
+  #     - 5432:5432
+  #   environment:
+  #     - POSTGRES_USER=${POSTGRES_USER:-zillionare}
+  #     - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-123456}
+  #     - POSTGRES_DB=${POSTGRES_DB:-zillionare}
+  #   volumes:
+  #     - ./init/postgres:/docker-entrypoint-initdb.d
