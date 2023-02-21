@@ -7,14 +7,22 @@ ARG PYPI_INDEX_URL
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN	apt-get update\
-	&& apt-get -qq install -y --no-install-recommends python3.8 python3-pip build-essential python3.8-dev vim iputils-ping wget tzdata \ 
+	&& apt-get install -y --no-install-recommends python3.8 python3-pip build-essential python3.8-dev vim iputils-ping wget tzdata \ 
 	&& pip3 config set global.index-url $PYPI_INDEX_URL 
 RUN pip install jqdatasdk
+RUN apt-get install git cmake
+RUN cd /apps \
+ 	&& git clone https://github.com/libfann/fann.git \
+#	&& mkdir /workspace/libfann \
+	&& cd /apps/fann \
+	&& cmake -DCMAKE_INSTALL_PREFIX=/apps/libfann . \
+	&& make install
 
 #RUN pip3 install numpy==1.20.3
 #RUN chmod a+x /root/zillionare/entrypoint.sh
 #解决numpy和pandas的问题
 #RUN pip install jqdatasdk -U 
+
 
 EXPOSE 3180
 EXPOSE 3181
