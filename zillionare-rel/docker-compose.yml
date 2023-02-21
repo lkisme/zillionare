@@ -34,6 +34,8 @@ services:
       - REDIS_PORT=${REDIS_PORT:-6379}
       - TZ=Asia/Shanghai
       - LANG=C.UTF-8
+    volumes:
+      - /Users/lkk/data/tutorial:/tutorial
   redis:
     image: redis:6.2
     container_name: redis

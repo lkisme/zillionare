@@ -35,7 +35,7 @@ services:
       - TZ=Asia/Shanghai
       - LANG=C.UTF-8
     volumes:
-      - /opt/data/ubuntu:/apps
+      - /Users/lkk/data/ubuntu:/apps
   # redis:
   #   image: redis:6.2
   #   container_name: redis
