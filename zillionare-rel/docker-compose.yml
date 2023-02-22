@@ -35,7 +35,7 @@ services:
       - TZ=Asia/Shanghai
       - LANG=C.UTF-8
     volumes:
-      - /Users/lkk/data/tutorial:/tutorial
+      - /Users/kuikui/workspace/zillionare/zillionare-rel/rootfs/tutorial:/tutorial
   redis:
     image: redis:6.2
     container_name: redis
